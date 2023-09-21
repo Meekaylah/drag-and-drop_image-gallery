@@ -3,12 +3,13 @@ import React, { useState, useRef, useEffect } from "react";
 function DragDrop({data}) {
     const [list, setList] = useState(data)
     const [dragging, setDragging] = useState(false)
+    const [query, setQuery] = useState("")
 
     useEffect(() => {
       setList(data);
       init();
     }, [setList, data])
-    
+
 
     const dragItem = useRef()
     const dragNode = useRef()
@@ -78,6 +79,11 @@ function DragDrop({data}) {
     return (
         <>
         <h1 className="app-title">Meal Tracker</h1>
+        <input 
+        value={query}
+        onChange={e => setQuery(e.target.value)}
+        type="search" 
+        placeholder="Search..."/>
         <div className="drag-n-drop">
           {list.map((group, groupItem) => (
             <div 
