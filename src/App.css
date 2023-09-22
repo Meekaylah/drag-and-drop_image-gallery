@@ -42,7 +42,6 @@ body {
   align-items: start;
   justify-content: space-evenly;
   cursor: -webkit-grabbing;
-  touch-action: none;
 }
 
 .dnd-group {
@@ -64,6 +63,11 @@ body {
   background-color: white;
   color: #282c34;
   font-weight: bold;
+  touch-action: none;
+}
+
+.disappear {
+  display: none;
 }
 
 .dnd-item:not(:last-of-type) {

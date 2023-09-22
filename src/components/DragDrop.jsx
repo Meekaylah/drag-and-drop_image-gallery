@@ -34,6 +34,7 @@ function DragDrop({data}) {
                 let newList = JSON.parse(JSON.stringify(oldList))
                 newList[params.groupItem].items.splice(params.itemI, 0, newList[currentItem.groupItem].items.splice(currentItem.itemI,1)[0])
                 dragItem.current = params
+                console.log(e, params);
                 return newList
             })
         }
@@ -76,6 +77,13 @@ function DragDrop({data}) {
         event.preventDefault()
     };
 
+    const showDraggables = (params) => {
+        if (!params.includes(query)) {
+            return document.getElementById('dnd-item').className = 'disappear'
+        } 
+        return document.getElementById('dnd-item').className = 'dnd-item'
+    }
+
     return (
         <>
         <h1 className="app-title">Meal Tracker</h1>
@@ -92,9 +100,10 @@ function DragDrop({data}) {
             onDragEnter={dragging && !group.items.length ? (e) => handleDragEnter(e, {groupItem, itemI: 0}) : null}>
               <div className="group-title">{group.title}</div>
               {group.items.map((item, itemI) => (
-                <div 
+                <div
+                id="dnd-item"
                 draggable
-                className={dragging ? getStyles({groupItem, itemI}) : "dnd-item"}
+                className={query !== '' ? showDraggables(item.id): (dragging ? getStyles({groupItem, itemI}) : "dnd-item")}
                 onDragStart={(e) => {handleDragStart(e, {groupItem, itemI})}}
                 onDragEnter={dragging ? (e) => {handleDragEnter(e, {groupItem, itemI})}:null} 
                 key={itemI} 
