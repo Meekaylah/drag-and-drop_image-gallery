@@ -77,16 +77,17 @@ function DragDrop({data}) {
     };
 
     const showDraggables = (params) => {
-        if (!params.includes(query)) {
-            return document.getElementById('dnd-item').className = 'disappear'
+        if (!params.toLowerCase().includes(query.toLowerCase())) {
+            return 'disappear'
         } 
-        return document.getElementById('dnd-item').className = 'dnd-item'
+        return 'dnd-item'
     }
 
     return (
         <>
         <h1 className="app-title">Meal Tracker</h1>
-        <input 
+        <input
+        id="searchbox" 
         value={query}
         onChange={e => setQuery(e.target.value)}
         type="search" 

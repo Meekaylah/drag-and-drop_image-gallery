@@ -103,6 +103,11 @@ body {
   display: none;
 }
 
+#searchbox {
+  width: 20%;
+  height: 2rem;
+}
+
 /* Login */
 
 .body {
