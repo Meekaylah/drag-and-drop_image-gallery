@@ -73,7 +73,7 @@ function DragDrop({data}) {
              false, false, false, false, 0, null);
     
         touch.target.dispatchEvent(simulatedEvent);
-        event.preventDefault()
+        // event.preventDefault()
     };
 
     const showDraggables = (params) => {
