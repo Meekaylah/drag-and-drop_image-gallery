@@ -34,7 +34,6 @@ function DragDrop({data}) {
                 let newList = JSON.parse(JSON.stringify(oldList))
                 newList[params.groupItem].items.splice(params.itemI, 0, newList[currentItem.groupItem].items.splice(currentItem.itemI,1)[0])
                 dragItem.current = params
-                console.log(e, params);
                 return newList
             })
         }
