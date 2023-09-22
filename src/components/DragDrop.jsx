@@ -91,7 +91,7 @@ function DragDrop({data}) {
         value={query}
         onChange={e => setQuery(e.target.value)}
         type="search" 
-        placeholder="Search..."/>
+        placeholder="Search for a meal..."/>
         <div className="drag-n-drop">
           {list.map((group, groupItem) => (
             <div 
